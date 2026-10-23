@@ -1,0 +1,27 @@
+name: locus
+version: 1.0.0
+config-version: 2
+profile: locus
+
+model-paths: ["models"]
+macro-paths: ["macros"]
+test-paths: ["tests"]
+target-path: "target"
+clean-targets: ["target", "dbt_packages", "logs"]
+
+models:
+  locus:
+    staging:
+      +materialized: view
+      +schema: locus_staging
+    intermediate:
+      +materialized: view
+      +schema: locus_intermediate
+    marts:
+      +materialized: table
+      +schema: locus_marts
+
+vars:
+  radius_m: 500
+  new_building_years: 5
+  population_per_unit: 2.2

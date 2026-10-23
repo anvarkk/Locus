@@ -1,0 +1,29 @@
+{
+  "default": "coffee",
+  "business_types": {
+    "coffee": {
+      "slug": "coffee",
+      "title": "Кофейня",
+      "description": "Кофейня у дома / coffee-to-go",
+      "competitor_categories": ["coffee", "cafe", "bakery"],
+      "weights": {
+        "demand": 0.45,
+        "access": 0.20,
+        "diversity": 0.10,
+        "competition": 0.25
+      }
+    },
+    "parcel_locker": {
+      "slug": "parcel_locker",
+      "title": "Пункт выдачи заказов",
+      "description": "ПВЗ маркетплейса в жилом массиве",
+      "competitor_categories": ["parcel_locker", "post_office"],
+      "weights": {
+        "demand": 0.50,
+        "access": 0.15,
+        "diversity": 0.10,
+        "competition": 0.25
+      }
+    }
+  }
+}

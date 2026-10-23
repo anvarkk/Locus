@@ -1,0 +1,29 @@
+{
+  "cities": {
+    "kazan": {
+      "slug": "kazan",
+      "name": "Казань",
+      "lat": 55.7963,
+      "lon": 49.1088,
+      "radius_km": 5.0,
+      "population": 1310000
+    },
+    "moscow": {
+      "slug": "moscow",
+      "name": "Москва",
+      "lat": 55.7558,
+      "lon": 37.6173,
+      "radius_km": 6.0,
+      "population": 13100000
+    },
+    "spb": {
+      "slug": "spb",
+      "name": "Санкт-Петербург",
+      "lat": 59.9343,
+      "lon": 30.3351,
+      "radius_km": 5.5,
+      "population": 5600000
+    }
+  },
+  "default_city": "kazan"
+}

@@ -2,6 +2,7 @@ services:
   postgis:
     image: postgis/postgis:16-3.4
     container_name: locus_db
+    restart: unless-stopped
     environment:
       POSTGRES_USER: locus
       POSTGRES_PASSWORD: locus
@@ -15,5 +16,7 @@ services:
       interval: 10s
       timeout: 5s
       retries: 5
+    shm_size: 256mb
+
 volumes:
   pgdata:

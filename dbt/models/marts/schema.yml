@@ -1,0 +1,49 @@
+version: 2
+
+models:
+  - name: int_cell_features
+    description: "Demand, competition and transport features per H3 cell."
+    columns:
+      - name: h3
+        tests: [not_null, unique]
+      - name: building_count
+        tests: [not_null]
+
+  - name: fct_location_index
+    description: "Investment index for every business type."
+    columns:
+      - name: h3
+        tests: [not_null]
+      - name: business_type
+        tests:
+          - not_null
+          - accepted_values:
+              arguments:
+                values: ["coffee", "parcel_locker"]
+      - name: investment_index
+        tests: [not_null]
+
+  - name: mart_investment_index
+    description: "Final ranked mart used by dashboards and analysts."
+    columns:
+      - name: h3
+        tests: [not_null]
+      - name: rank
+        tests: [not_null]
+      - name: recommendation
+        tests:
+          - accepted_values:
+              arguments:
+                values:
+                  - "A — открывать"
+                  - "B — рассмотреть"
+                  - "C — наблюдать"
+                  - "D — не рекомендуется"
+
+  - name: dim_h3_cells
+    description: "H3 cell dimension with geometry."
+    columns:
+      - name: h3
+        tests: [not_null, unique]
+      - name: geom
+        tests: [not_null]

@@ -1,0 +1,42 @@
+version: 2
+
+sources:
+  - name: raw
+    description: "Raw OSM / open-data tables loaded by the Python pipeline."
+    schema: raw
+    tables:
+      - name: pois
+        columns:
+          - name: city
+            tests: [not_null]
+          - name: id
+            tests: [not_null]
+          - name: category
+            tests: [not_null]
+          - name: geom
+            tests: [not_null]
+      - name: buildings
+        columns:
+          - name: city
+            tests: [not_null]
+          - name: id
+            tests: [not_null]
+          - name: geom
+            tests: [not_null]
+      - name: transport_stops
+        columns:
+          - name: city
+            tests: [not_null]
+          - name: geom
+            tests: [not_null]
+
+  - name: analytics
+    description: "H3 cells loaded by the Python pipeline (H3 is not native to PostGIS)."
+    schema: analytics
+    tables:
+      - name: h3_cells
+        columns:
+          - name: h3
+            tests: [not_null, unique]
+          - name: geom
+            tests: [not_null]
